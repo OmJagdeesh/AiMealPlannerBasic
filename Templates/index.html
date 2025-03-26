@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plan Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Meal Plan Generator</h1>
+        <form id="meal-form">
+            <label for="carbs">Carbs (g):</label>
+            <input type="range" id="carbs" name="carbs" min="0" max="300" step="10" value="0" oninput="this.nextElementSibling.value = this.value">
+            <output>0</output>
+
+            <label for="protein">Protein (g):</label>
+            <input type="range" id="protein" name="protein" min="0" max="200" step="10" value="0" oninput="this.nextElementSibling.value = this.value">
+            <output>0</output>
+
+            <label for="fat">Fat (g):</label>
+            <input type="range" id="fat" name="fat" min="0" max="100" step="5" value="0" oninput="this.nextElementSibling.value = this.value">
+            <output>0</output>
+
+            <label for="meal_type">Meal Type:</label>
+            <select id="meal_type" name="meal_type">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+            </select>
+
+            <label for="cuisine_type">Cuisine Type:</label>
+            <select id="cuisine_type" name="cuisine_type">
+                <option value="Indian">Indian</option>
+                <option value="Italian">Italian</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Chinese">Chinese</option>
+                <option value="French">French</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Greek">Greek</option>
+                <option value="Thai">Thai</option>
+                <option value="Mediterranean">Mediterranean</option>
+            </select>
+
+            <button type="button" id="generate">Generate Meal Plan</button>
+            <button type="button" id="clear">Clear</button>
+        </form>
+
+        <h2>Generated Meal Plan:</h2>
+        <div id="result" class="formatted-output"></div>  <!-- Result section -->
+        <button type="button" id="copy">Copy to Clipboard</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
